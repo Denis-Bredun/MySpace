@@ -1,0 +1,101 @@
+{
+  "news": [
+    {
+      "id": 1,
+      "title": "Breaking News: New Tech Released!",
+      "description": "A new wave of innovative technology has hit the market, promising to revolutionize the industry."
+    },
+    {
+      "id": 2,
+      "title": "Recommended: Top 5 Gadgets",
+      "description": "Discover the best gadgets of the year that every tech lover should own."
+    },
+    {
+      "id": 3,
+      "title": "Exclusive Deals: Discounts up to 50%",
+      "description": "Don't miss out on incredible discounts on your favorite products this season."
+    },
+    {
+      "id": 4,
+      "title": "App Update: New Features Added",
+      "description": "The latest update brings exciting new features and enhancements to improve your user experience."
+    }
+  ],
+  "developers": [
+    {
+      "id": 1,
+      "name": "Denis Bredun",
+      "role": "Lead Developer",
+      "bio": "An experienced developer with a passion for creating innovative solutions."
+    },
+    {
+      "id": 2,
+      "name": "Anna Ivanova",
+      "role": "UI/UX Designer",
+      "bio": "A creative designer focused on enhancing user experiences through intuitive designs."
+    },
+    {
+      "id": 3,
+      "name": "John Doe",
+      "role": "Backend Engineer",
+      "bio": "A backend specialist dedicated to building robust server-side applications."
+    }
+  ],
+  "profile": [
+    {
+      "id": 1,
+      "activity": "Last Login: 2024-10-05"
+    },
+    {
+      "id": 2,
+      "activity": "Recent Activity: Order #1234"
+    },
+    {
+      "id": 3,
+      "activity": "Subscription: Premium"
+    }
+  ],
+  "shop": [
+    {
+      "id": 1,
+      "product": "Smartwatch",
+      "price": "$199",
+      "description": "A stylish smartwatch with multiple features to keep you connected."
+    },
+    {
+      "id": 2,
+      "product": "Bluetooth Headphones",
+      "price": "$99",
+      "description": "Experience high-quality sound with these wireless headphones."
+    },
+    {
+      "id": 3,
+      "product": "Laptop",
+      "price": "$999",
+      "description": "A powerful laptop perfect for work and entertainment."
+    },
+    {
+      "id": 4,
+      "product": "Smartphone",
+      "price": "$799",
+      "description": "The latest smartphone with cutting-edge technology."
+    }
+  ],
+  "settings": [
+    {
+      "id": 1,
+      "setting": "Theme",
+      "options": "Light / Dark"
+    },
+    {
+      "id": 2,
+      "setting": "Language",
+      "options": "English, Українська"
+    },
+    {
+      "id": 3,
+      "setting": "Notifications",
+      "options": "Enabled"
+    }
+  ]
+}
