@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import { View, Text, Button } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import CustomButton from '../components/CustomButton';
@@ -18,19 +18,23 @@ const ShopScreen = ({ navigation }) => {
         queryFn: fetchShopItems,
     });
 
+    const memoizedShopItems = useMemo(() => {
+        if (!shopItems) return [];
+        return shopItems.map((item) => (
+            <View key={item.id} style={styles.itemContainer}>
+                <Text style={styles.item}>{item.product} - {item.price}</Text>
+                <Text style={styles.item}>{item.description}</Text>
+            </View>
+        ));
+    }, [shopItems]);
+
     if (isLoading) return <Text>Loading...</Text>;
     if (error) return <Text>Error: {error.message}</Text>;
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Shop</Text>
-            {shopItems.map((item) => (
-                <View key={item.id} style={styles.itemContainer}>
-                    <Text style={styles.item}>{item.product}</Text>
-                    <Text style={styles.item}>{item.price}</Text>
-                    <Text style={styles.item}>{item.description}</Text>
-                </View>
-            ))}
+            {memoizedShopItems}
             <Button title="Buy Now" onPress={() => alert('Proceed to checkout')} />
             <CustomButton title="Back to Home" onPress={() => navigation.navigate('Home')} />
         </View>

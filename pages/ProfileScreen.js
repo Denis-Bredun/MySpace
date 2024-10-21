@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, Image } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import CustomButton from '../components/CustomButton';
@@ -18,12 +18,21 @@ const ProfileScreen = ({ navigation }) => {
         queryFn: fetchProfileData,
     });
 
+    const [message, setMessage] = useState('');
+
+    useEffect(() => {
+        setMessage('Profile loaded successfully!');
+        const timer = setTimeout(() => setMessage(''), 3000);
+        return () => clearTimeout(timer);
+    }, []);
+
     if (isLoading) return <Text>Loading...</Text>;
     if (error) return <Text>Error: {error.message}</Text>;
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Profile</Text>
+            {message ? <Text style={styles.message}>{message}</Text> : null}
             <Image
                 source={{ uri: 'https://avatarfiles.alphacoders.com/375/thumb-1920-375542.png' }}
                 style={styles.avatar}

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { View, Text } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import CustomButton from '../components/CustomButton';
@@ -18,6 +18,22 @@ const HomeScreen = ({ navigation }) => {
         queryFn: fetchNews,
     });
 
+    const goToProfile = useCallback(() => {
+        navigation.navigate('Profile');
+    }, [navigation]);
+
+    const goToShop = useCallback(() => {
+        navigation.navigate('Shop');
+    }, [navigation]);
+
+    const goToSettings = useCallback(() => {
+        navigation.navigate('Settings');
+    }, [navigation]);
+
+    const goToAbout = useCallback(() => {
+        navigation.navigate('About');
+    }, [navigation]);
+
     if (isLoading) return <Text>Loading...</Text>;
     if (error) return <Text>Error: {error.message}</Text>;
 
@@ -31,10 +47,10 @@ const HomeScreen = ({ navigation }) => {
                 </View>
             ))}
             <View style={styles.buttonContainer}>
-                <CustomButton title="Profile" onPress={() => navigation.navigate('Profile')} />
-                <CustomButton title="Shop" onPress={() => navigation.navigate('Shop')} />
-                <CustomButton title="Settings" onPress={() => navigation.navigate('Settings')} />
-                <CustomButton title="About App" onPress={() => navigation.navigate('About')} />
+                <CustomButton title="Profile" onPress={goToProfile} />
+                <CustomButton title="Shop" onPress={goToShop} />
+                <CustomButton title="Settings" onPress={goToSettings} />
+                <CustomButton title="About App" onPress={goToAbout} />
             </View>
         </View>
     );

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { View, Text, Button } from 'react-native';
 import { useQuery } from '@tanstack/react-query';
 import CustomButton from '../components/CustomButton';
@@ -18,12 +18,20 @@ const SettingsScreen = ({ navigation }) => {
         queryFn: fetchSettings,
     });
 
+    const [theme, setTheme] = useState('Light');
+
+    const toggleTheme = () => {
+        setTheme((prevTheme) => (prevTheme === 'Light' ? 'Dark' : 'Light'));
+    };
+
     if (isLoading) return <Text>Loading...</Text>;
     if (error) return <Text>Error: {error.message}</Text>;
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Settings</Text>
+            <Text>Current Theme: {theme}</Text>
+            <Button title="Toggle Theme" onPress={toggleTheme} />
             {settings.map((setting) => (
                 <View key={setting.id} style={styles.itemContainer}>
                     <Text style={styles.item}>{setting.setting}</Text>
